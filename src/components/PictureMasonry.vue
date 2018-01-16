@@ -103,10 +103,12 @@ export default {
     },
     // 往图片数组追加元素
     append (isRefresh) {
+      // 如果是下拉更新，则清空左右列表
       if (isRefresh) {
         this.photos_left = []
         this.photos_right = []
       }
+      // 往左右列表新增元素
       for (var i = 0; i < this.photos.length; i++) {
         if (i % 2 === 0) {
           this.photos_left.push(this.photos[i])
