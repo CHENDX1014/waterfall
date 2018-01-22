@@ -55,7 +55,8 @@ export default {
       photos_right: [],
       iconLink: '',
       loading: false,
-      loadable: true
+      loadable: true,
+      reverse: 0
     }
   },
   mounted () {
@@ -108,9 +109,15 @@ export default {
         this.photos_left = []
         this.photos_right = []
       }
+      // 左右两边进行反转，避免有某一列长度过长
+      if (this.reverse === 0 && !isRefresh) {
+        this.reverse = 1
+      } else {
+        this.reverse = 0
+      }
       // 往左右列表新增元素
       for (var i = 0; i < this.photos.length; i++) {
-        if (i % 2 === 0) {
+        if (i % 2 === this.reverse) {
           this.photos_left.push(this.photos[i])
         } else {
           this.photos_right.push(this.photos[i])
