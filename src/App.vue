@@ -42,8 +42,8 @@ export default {
     },
     loadmore () {
       console.log('load more')
-      Array.prototype.push.apply(this.list, this.backup)
-      console.log(this.list)
+      // Array.prototype.push.apply(this.list, this.backup)
+      this.list = this.list.concat(this.backup)
     }
   },
   components: {

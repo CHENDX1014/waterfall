@@ -63,6 +63,7 @@ export default {
       if (that.check_scroll()) {
         // 显示正在加载中
         that.up_loading = true
+        // 调用用户自定义的加载函数
         that.loadmore()
         // 隐藏正在加载中
         that.up_loading = false
@@ -143,6 +144,7 @@ export default {
         this.down_loading = true
         this.flag = 0
         setTimeout(() => {
+          // 调用用户自定义的刷新函数
           this.refresh()
           // 重新刷新，又可以加载更多了
           this.down_loading = false
